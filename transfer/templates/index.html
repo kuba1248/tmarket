@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer market</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+    <style>
+table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+th {
+  background-color: #fce7bd;
+  color: white;
+}
+
+th,
+td {
+    width: 150px;
+    text-align: center;
+    background-color: #fce7bd;
+    font-size: 100%;
+    color: midnightblue;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+h2 {
+  color: #4287f5;
+}
+    </style>
+</head>
+<body>
+    <center>
+    <div class="jumbotron">
+        <h1>Transfer Market</h1>
+   <div class='responsive-table'>
+
+
+            <table class = 'highlight '>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>position</th>
+                <th>age</th>
+                <th>experience</th>
+                <th>date buyed</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for player in markets %}
+                <tr>
+                    <td>{{ player.id }} </td>
+                    <td>{{ player.name }}</td>
+                    <td>{{ player.position }}</td>
+                    <td>{{ player.age }}</td>
+                    <td>{{ player.experience }}</td>
+                    <td>{{ player.date_buyed }}</td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+</center>
+</body>
+</html>
