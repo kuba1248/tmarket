@@ -35,12 +35,12 @@ h2 {
 <body>
     <center>
     <div class="jumbotron">
-        <h1>Transfer Market</h1>
+        <h1>My team</h1>
    <div class='responsive-table'>
 
-    <a href="{% url 'transfer:myteam' %}"><button type="button" class="btn btn-success">My team</button></a>
+       <a href="{% url 'transfer:index' %}"><button type="button" class="btn btn-success">T-Market</button></a>
 
-            <table class = 'highlight '>
+           <table class = 'highlight '>
             <thead>
             <tr>
                 <th>id</th>
@@ -54,7 +54,7 @@ h2 {
             </tr>
             </thead>
             <tbody>
-            {% for player in markets %}
+            {% for player in myteam %}
                 <tr>
                     <td>{{ player.id }} </td>
                     <td>{{ player.name }}</td>
@@ -62,13 +62,15 @@ h2 {
                     <td>{{ player.age }}</td>
                     <td>{{ player.experience }}</td>
                     <td>{{ player.date_buyed }}</td>
-                    <td><a href="{% url 'transfer:buy' player.id %}"><button type="button" class="btn btn-info">Buy</button></a>
-</td>
+                    <td><a href="{% url 'transfer:sell' player.id %}"><button type="button" class="btn btn-info">Sell</button></a>
 
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+
+         <a href="{% url 'transfer:index' %}"><button type="button" class="btn btn-success">T-Market</button></a>
+
     </div>
     </div>
 </center>
