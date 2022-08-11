@@ -9,13 +9,13 @@ from .models import Market, Myteam
 
 # Create your views here.
 def index(request):
-    markets = Market.objects.all()
+    markets = Market.objects.all().order_by('position','-skills')
 
     return render(request, 'index.html', {'markets': markets})
 
 
 def myteam(request):
-    myteam = Myteam.objects.all()
+    myteam = Myteam.objects.all().order_by('position','-skills')
 
     return render(request, 'myteam.html', {'myteam': myteam})
 
@@ -36,6 +36,7 @@ def buy(request, id):
     tplayer.position = marketp.position
     tplayer.age = marketp.age
     tplayer.experience = marketp.experience
+    tplayer.skills = marketp.skills
     tplayer.date_buyed = timezone.now()
 
     tplayer.save()
@@ -58,6 +59,7 @@ def sell(request, id):
     marketp.name = tplayer.name
     marketp.position = tplayer.position
     marketp.age = tplayer.age
+    marketp.skills = tplayer.skills
     marketp.experience = tplayer.experience
     marketp.date_buyed = timezone.now()
 

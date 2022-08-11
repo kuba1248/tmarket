@@ -44,11 +44,10 @@ h2 {
             <thead>
             <tr>
                 <th>id</th>
-                <th>name</th>
                 <th>position</th>
+                <th>name</th>
                 <th>age</th>
-                <th>experience</th>
-                <th>date transferred</th>
+                <th>skill</th>
                 <th>apply</th>
 
             </tr>
@@ -57,11 +56,10 @@ h2 {
             {% for player in myteam %}
                 <tr>
                     <td>{{ player.id }} </td>
-                    <td>{{ player.name }}</td>
                     <td>{{ player.position }}</td>
+                    <td>{{ player.name }}</td>
                     <td>{{ player.age }}</td>
-                    <td>{{ player.experience }}</td>
-                    <td>{{ player.date_buyed }}</td>
+                    <td>{{ player.skills }}</td>
                     <td><a href="{% url 'transfer:sell' player.id %}"><button type="button" class="btn btn-info">Sell</button></a>
 
                 </tr>
