@@ -36,9 +36,20 @@ h2 {
     <center>
     <div class="jumbotron">
         <h1>Transfer Market</h1>
+<br>
+        <div>Местное время: </div>  <div id="time"></div>
+
+<script>
+function updateTime() {
+    document.getElementById("time").innerHTML = new Date().toTimeString();
+}
+setInterval(updateTime, 1000);
+</script>
+<br>
    <div class='responsive-table'>
 
-    <a href="{% url 'transfer:myteam' %}"><button type="button" class="btn btn-success">My team</button></a>
+    <a href="{% url 'transfer:league' %}"><button type="button" class="btn btn-warning">League</button></a>
+   <a href="{% url 'transfer:selection' %}"><button type="button" class="btn btn-primary">Match</button></a>
 
             <table class = 'highlight '>
             <thead>
@@ -67,6 +78,9 @@ h2 {
             {% endfor %}
             </tbody>
         </table>
+    <a href="{% url 'transfer:league' %}"><button type="button" class="btn btn-warning">League</button></a>
+   <a href="{% url 'transfer:selection' %}"><button type="button" class="btn btn-primary">Match</button></a>
+
     </div>
     </div>
 </center>

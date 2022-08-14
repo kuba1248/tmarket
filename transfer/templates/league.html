@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer market</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+    <style>
+table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+th {
+  background-color: #fce7bd;
+  color: white;
+}
+
+th,
+td {
+    width: 150px;
+    text-align: center;
+    background-color: #fce7bd;
+    font-size: 100%;
+    color: midnightblue;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+h2 {
+  color: #4287f5;
+}
+    </style>
+</head>
+<body>
+    <center>
+    <div class="jumbotron">
+        <h1>League</h1>
+   <a href="{% url 'transfer:index' %}"><button type="button" class="btn btn-success">T-Market</button></a>
+    <a href="{% url 'transfer:myteam' %}"><button type="button" class="btn btn-warning">My team</button></a>
+   <a href="{% url 'transfer:selection' %}"><button type="button" class="btn btn-primary">Match</button></a>
+
+   <div class='responsive-table'>
+
+        <br>
+       <h3> super league </h3>
+           <table class = 'highlight '>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>goals</th>
+                <th>wins</th>
+                <th>losts</th>
+                <th>points</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for team in teams %}
+                <tr>
+                    <td>{{ team.id }} </td>
+                    <td><a href="{% url 'transfer:lteam' team.id %}">{{ team.name }}</a></td>
+
+                    <td>{{ team.totalg }}</td>
+
+                    <td>{{ team.wins }}</td>
+                    <td>{{ team.losts }}</td>
+                    <td>{{ team.points }}</td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <br>
+
+         <a href="{% url 'transfer:index' %}"><button type="button" class="btn btn-success">T-Market</button></a>
+        <a href="{% url 'transfer:myteam' %}"><button type="button" class="btn btn-warning">My team</button></a>
+
+    </div>
+    </div>
+</center>
+</body>
+</html>

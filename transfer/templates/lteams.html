@@ -35,10 +35,14 @@ h2 {
 <body>
     <center>
     <div class="jumbotron">
-        <h1>My team</h1>
+        <h1>{{ lteamn.name }}</h1>
    <a href="{% url 'transfer:index' %}"><button type="button" class="btn btn-success">T-Market</button></a>
     <a href="{% url 'transfer:league' %}"><button type="button" class="btn btn-warning">League</button></a>
-
+   <a href="{% url 'transfer:selection' %}"><button type="button" class="btn btn-primary">Match</button></a>
+        <div>
+            <br>
+            <ul><h3>Total goals: {{ lteamn.totalg }}</h3></ul>
+        </div>
    <div class='responsive-table'>
 
         <br>
@@ -59,7 +63,7 @@ h2 {
             </tr>
             </thead>
             <tbody>
-            {% for player in myteam %}
+            {% for player in lmyteam %}
                 <tr>
                     <td>{{ player.id }} </td>
                     <td>{{ player.position }}</td>
@@ -93,7 +97,7 @@ h2 {
             </tr>
             </thead>
             <tbody>
-            {% for player in myteamrez %}
+            {% for player in lmyteamrez %}
                 <tr>
                     <td>{{ player.id }} </td>
                     <td>{{ player.position }}</td>

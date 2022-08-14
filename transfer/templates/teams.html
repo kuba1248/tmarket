@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer market</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+    <style>
+table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+th {
+  background-color: #fce7bd;
+  color: white;
+}
+
+th,
+td {
+    width: 150px;
+    text-align: center;
+    background-color: #fce7bd;
+    font-size: 100%;
+    color: midnightblue;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+h2 {
+  color: #4287f5;
+}
+    </style>
+</head>
+<body>
+    <center>
+<div class="jumbotron">
+    <br>
+    <h3> Select teams </h3>
+<form action="{% url 'transfer:selection' %}" method="post">
+    {% csrf_token %}
+      <table>
+        {{ form.as_p }}
+    </table>
+    <input type="submit" value="Simulate">
+</form>
+    <br>
+        <div>Местное время: </div>  <div id="time"></div>
+
+<script>
+function updateTime() {
+    document.getElementById("time").innerHTML = new Date().toTimeString();
+}
+setInterval(updateTime, 1000);
+</script>
+<br>
+</div>
+        </center>
+</body>
+</html>

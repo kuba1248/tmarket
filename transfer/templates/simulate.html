@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer market</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+    <style>
+  .divContainer {
+    background-color: #33FF99;
+    left: 0;
+  }
+
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 15px;
+}
+
+th {
+  background-color: #fce7bd;
+  color: white;
+}
+
+th,
+td {
+    width: 150px;
+    text-align: center;
+    background-color: #fce7bd;
+    font-size: 100%;
+    color: midnightblue;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+h2 {
+  color: #4287f5;
+}
+    </style>
+      <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+</head>
+<body>
+    <center>
+    <div class="jumbotron">
+        <h1>{{ tteam1 }} vs {{ tteam2 }}</h1>
+
+        <br>
+        <br>
+
+{% load simulation_extras %}
+
+<h3> The match started! </h3>
+<br>
+<div class="divContainer" style="height:300px;overflow:auto;" id="divContainer">
+
+
+<script type="text/javascript">
+var up = false;
+var lastPosition;
+
+var interval = setInterval(function () {
+    var $container = $("#divContainer");
+    var position = $container.scrollTop();
+    var height = $container[0].scrollHeight;
+
+    // If we haven't moved, switch direction
+    if(position === lastPosition) up = !up;
+    lastPosition = position;
+
+    if (up) {
+        // Going up
+        $container.scrollTop(position - 10);
+    } else {
+        // Going down
+        $container.scrollTop(position + 10);
+    }
+}, 300);
+</script>
+        <br>
+       <h3> super league </h3>
+           <table class = 'highlight '>
+            <thead>
+
+            <tr>
+
+        <ul>Match starts</ul>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+
+
+        <ul>
+
+            {% for i in appresult %}
+
+            <p id="demo"><h3>{{ i }}</h3><br><br></p>
+
+            {% endfor %}
+
+
+        </ul>
+
+            </tr>
+            </tbody>
+</table>
+               <br>
+
+</div>
+
+
+        <br>
+        <div>Местное время: </div>  <div id="time"></div>
+
+<script>
+function updateTime() {
+    document.getElementById("time").innerHTML = new Date().toTimeString();
+}
+setInterval(updateTime, 1000);
+</script>
+               <br>
+
+   <a href="{% url 'transfer:index' %}"><button type="button" class="btn btn-success">T-Market</button></a>
+   <a href="{% url 'transfer:league' %}"><button type="button" class="btn btn-info">League</button></a>
+ <a href="{% url 'transfer:selection' %}"><button type="button" class="btn btn-primary">Match</button></a>
+
+    </div>
+
+
+</center>
+</body>
+</html>

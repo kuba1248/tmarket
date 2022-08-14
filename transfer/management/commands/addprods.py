@@ -611,6 +611,22 @@ image_list = ['images/console-01.png',
               'images/tv-04.png',
               'images/tv-05.png']
 
+cskills = ['🟩🟩🟥🟥🟫🟫🟦🟦🟦🟪🟪🟪🟪',
+           '🟩🟩🟥🟥🟫🟫🟦🟦🟦🟪🟪🟪',
+           '🟩🟩🟥🟥🟫🟫🟦🟦🟦🟪🟪',
+           '🟩🟩🟥🟥🟫🟫🟦🟦🟦🟪',
+           '🟩🟩🟥🟥🟫🟫🟦🟦🟦',
+           '🟩🟩🟥🟥🟫🟫🟦🟦',
+           '🟩🟩🟥🟥🟫🟫🟦',
+           '🟩🟩🟥🟥🟫🟫',
+           '🟩🟩🟥🟥🟫',
+           '🟩🟩🟥🟥',
+           '🟩🟩🟥',
+           '🟩🟩']
+
+lteams = ['Chelsea', 'Liverpool', 'Barca']
+
+pstats = ['reserve', 'onstart']
 
 # print(random.choice(player_list))
 # Output 222
@@ -627,16 +643,24 @@ class Command(BaseCommand):
         #     users = UserDetails.objects.all()
         #     nUsers = len(users)
 
-        for i in range(1, 20):
+        for i in range(100, 200):
             now = timezone.now()
             date_buyed = now + datetime.timedelta(seconds=random.randint(0, 90))
             name = random.choice(player_list)
-
+            pstatus = random.choice(pstats)
+            goals = random.randint(1,10)
             age = random.randint(16,27)
             position = random.choice(position_list)
             experience = random.choice(category_list)
-            newPlayer = Market(
+            # lteam = random.choice(lteams)
+            skills = random.choice(cskills)
+
+            newPlayer = Myteam(
                               date_buyed=date_buyed,
+                              pstatus=pstatus,
+                              goals=goals,
+
+                              skills=skills,
                               name=name,
                               age=age,
                               position=position,
