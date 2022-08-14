@@ -1,6 +1,6 @@
 # tmarket
 
-# it is transfer market project,
+# it is football manager game project,
 
 # So far, have added transfer market,
 - league table,
